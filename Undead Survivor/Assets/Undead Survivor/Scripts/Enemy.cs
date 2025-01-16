@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -35,5 +36,10 @@ public class Enemy : MonoBehaviour
             return;
 
         spriter.flipX = target.position.x < rigid.position.x;
+    }
+
+    void OnEnable()
+    {
+        target = GameManager.instance.plyaer.GetComponent<Rigidbody2D>();
     }
 }
